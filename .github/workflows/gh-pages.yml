@@ -1,0 +1,31 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow when pushing to the 'main' branch
+
+jobs:
+  build:
+    runs-on: windows-latest  # You can change this to 'windows-latest' if you need Windows
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.139.2'  # Ensure this version is the same as your local version
+
+    - name: Build Hugo site
+      run: hugo  # This will build the site and generate the public/ folder
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        # The directory to deploy is the 'public' directory where Hugo generates the output files
+        target_branch: gh-pages
+        build_dir: ./public  # Make sure this is the correct build directory
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for authentication
