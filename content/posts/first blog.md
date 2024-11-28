@@ -7,7 +7,8 @@ tags:
 - blog
 ---
 
+![[Pasted image 20241128160122.png]] 
+Hallo dit werkt eindelijk! alleen ik heb een probleempje, ik moet een script ervoor gaan maken dat dit automatisch gebeurd, ik moet eerst robocopy --> cd static --> python images.py --> cd .. --> hugo server -t Papermod
 
-Hmm dit werkt niet
-!![Image Description](/images/Pasted%20image%2020241128160122.png) Waarom
-plsss !![Image Description](/images/Pasted%20image%2020241128160122.png)
+Nu wil ik dit laten leven in mijn git 
+
